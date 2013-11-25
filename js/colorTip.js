@@ -4,6 +4,8 @@ define(['jquery'],function($) {
 
 		$tip: null,
 
+        timer: null,
+
 		tip: function() {
 
 			if(!this.$tip) {
@@ -27,14 +29,21 @@ define(['jquery'],function($) {
 		},
 
 		show: function(options,success) {
-			
-			var that = this;
+
+            var that = this;
+//            that.hide();
+            if(that.timer) {
+                clearTimeout(that.timer);
+            }
 
 			var msg = this.getMsg(options);
 
 			if(msg) {
 				var $tip = this.tip();
 			}
+
+            $tip.css('opacity','1');
+            $tip.hide();
 
 			if(success) {
 				$tip.find('.color-tip').addClass('color-tip-success').html(msg);
@@ -43,9 +52,9 @@ define(['jquery'],function($) {
 			}
 			
 			$tip.remove().prependTo(document.body).hide();
-			$tip.slideDown();
+			$tip.stop(true,true).slideDown();
 
-			setTimeout(function(){
+			that.timer = setTimeout(function(){
 				
 				that.hide();
 			}, 1200);
@@ -54,7 +63,7 @@ define(['jquery'],function($) {
 
 		hide: function() {
 
-			this.tip().stop().fadeOut(1500);
+			this.tip().fadeOut(1500);
 		},
 
 		success: function(options) {
