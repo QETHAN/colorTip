@@ -1,0 +1,28 @@
+.color-tip-wrapper {
+			top: 0;
+			position: fixed;
+			width: 100%;
+		}
+.color-tip {
+	position: relative;
+	margin: 0 auto;
+	width: 90%;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+	border-radius: 3px;
+	background: linear-gradient(#fff7cb, #fff4b7);
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	-webkit-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	-moz-box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.33);
+	color: #828282;
+	font-size: 14px;
+	padding: 1em 1.5em;
+}
+
+.color-tip-success {
+	background: linear-gradient(#cbf5fb,#a2e1d4);
+}
